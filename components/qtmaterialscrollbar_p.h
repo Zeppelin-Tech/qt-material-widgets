@@ -7,20 +7,20 @@ class QtMaterialScrollBar;
 class QtMaterialScrollBarStateMachine;
 
 class QtMaterialScrollBarPrivate {
-  Q_DISABLE_COPY(QtMaterialScrollBarPrivate)
-  Q_DECLARE_PUBLIC(QtMaterialScrollBar)
+    Q_DISABLE_COPY(QtMaterialScrollBarPrivate)
+    Q_DECLARE_PUBLIC(QtMaterialScrollBar)
 
-public:
-  QtMaterialScrollBarPrivate(QtMaterialScrollBar *q);
-  ~QtMaterialScrollBarPrivate();
+  public:
+    QtMaterialScrollBarPrivate(QtMaterialScrollBar *q);
+    ~QtMaterialScrollBarPrivate();
 
-  void init();
+    void init();
 
-  QtMaterialScrollBar *const q_ptr;
-  QtMaterialScrollBarStateMachine *stateMachine;
-  QColor backgroundColor;
-  QColor sliderColor;
-  QColor canvasColor;
-  bool hideOnMouseOut;
-  bool useThemeColors;
+    QtMaterialScrollBar *const q_ptr;
+    QtMaterialScrollBarStateMachine *stateMachine;
+    QColor backgroundColor;
+    QColor sliderColor;
+    QColor canvasColor;
+    bool hideOnMouseOut;
+    bool useThemeColors;
 };

@@ -8,18 +8,18 @@
 class QtMaterialAutoComplete;
 
 class AutoCompleteSettingsEditor : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit AutoCompleteSettingsEditor(QWidget *parent = 0);
-  ~AutoCompleteSettingsEditor();
+  public:
+    explicit AutoCompleteSettingsEditor(QWidget *parent = 0);
+    ~AutoCompleteSettingsEditor();
 
-protected slots:
-  void setupForm();
-  void updateWidget();
-  void selectColor();
+  protected slots:
+    void setupForm();
+    void updateWidget();
+    void selectColor();
 
-private:
-  // Ui::AutoCompleteSettingsForm *const ui;
-  QtMaterialAutoComplete *const m_autocomplete;
+  private:
+    // Ui::AutoCompleteSettingsForm *const ui;
+    QtMaterialAutoComplete *const m_autocomplete;
 };

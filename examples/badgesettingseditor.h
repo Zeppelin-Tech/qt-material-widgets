@@ -7,19 +7,19 @@ class QtMaterialAvatar;
 class QtMaterialBadge;
 
 class BadgeSettingsEditor : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit BadgeSettingsEditor(QWidget *parent = 0);
-  ~BadgeSettingsEditor();
+  public:
+    explicit BadgeSettingsEditor(QWidget *parent = 0);
+    ~BadgeSettingsEditor();
 
-protected slots:
-  void setupForm();
-  void updateWidget();
-  void selectColor();
+  protected slots:
+    void setupForm();
+    void updateWidget();
+    void selectColor();
 
-private:
-  Ui::BadgeSettingsForm *const ui;
-  QtMaterialAvatar *const m_avatar;
-  QtMaterialBadge *const m_badge;
+  private:
+    Ui::BadgeSettingsForm *const ui;
+    QtMaterialAvatar *const m_avatar;
+    QtMaterialBadge *const m_badge;
 };

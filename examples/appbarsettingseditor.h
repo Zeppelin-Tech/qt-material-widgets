@@ -6,18 +6,18 @@
 class QtMaterialAppBar;
 
 class AppBarSettingsEditor : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit AppBarSettingsEditor(QWidget *parent = 0);
-  ~AppBarSettingsEditor();
+  public:
+    explicit AppBarSettingsEditor(QWidget *parent = 0);
+    ~AppBarSettingsEditor();
 
-protected slots:
-  void setupForm();
-  void updateWidget();
-  void selectColor();
+  protected slots:
+    void setupForm();
+    void updateWidget();
+    void selectColor();
 
-private:
-  Ui::AppBarSettingsForm *const ui;
-  QtMaterialAppBar *const m_appBar;
+  private:
+    Ui::AppBarSettingsForm *const ui;
+    QtMaterialAppBar *const m_appBar;
 };

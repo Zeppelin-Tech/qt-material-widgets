@@ -8,19 +8,19 @@ class QtMaterialAutoCompleteOverlay;
 class QtMaterialAutoCompleteStateMachine;
 
 class QtMaterialAutoCompletePrivate : public QtMaterialTextFieldPrivate {
-  Q_DISABLE_COPY(QtMaterialAutoCompletePrivate)
-  Q_DECLARE_PUBLIC(QtMaterialAutoComplete)
+    Q_DISABLE_COPY(QtMaterialAutoCompletePrivate)
+    Q_DECLARE_PUBLIC(QtMaterialAutoComplete)
 
-public:
-  QtMaterialAutoCompletePrivate(QtMaterialAutoComplete *q);
-  virtual ~QtMaterialAutoCompletePrivate();
+  public:
+    QtMaterialAutoCompletePrivate(QtMaterialAutoComplete *q);
+    virtual ~QtMaterialAutoCompletePrivate();
 
-  void init();
+    void init();
 
-  QWidget *menu;
-  QWidget *frame;
-  QtMaterialAutoCompleteStateMachine *stateMachine;
-  QVBoxLayout *menuLayout;
-  QStringList dataSource;
-  int maxWidth;
+    QWidget *menu;
+    QWidget *frame;
+    QtMaterialAutoCompleteStateMachine *stateMachine;
+    QVBoxLayout *menuLayout;
+    QStringList dataSource;
+    int maxWidth;
 };

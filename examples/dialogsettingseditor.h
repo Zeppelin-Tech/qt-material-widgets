@@ -6,17 +6,17 @@
 class QtMaterialDialog;
 
 class DialogSettingsEditor : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit DialogSettingsEditor(QWidget *parent = 0);
-  ~DialogSettingsEditor();
+  public:
+    explicit DialogSettingsEditor(QWidget *parent = 0);
+    ~DialogSettingsEditor();
 
-protected slots:
-  void setupForm();
-  void updateWidget();
+  protected slots:
+    void setupForm();
+    void updateWidget();
 
-private:
-  Ui::DialogSettingsForm *const ui;
-  QtMaterialDialog *const m_dialog;
+  private:
+    Ui::DialogSettingsForm *const ui;
+    QtMaterialDialog *const m_dialog;
 };

@@ -6,18 +6,18 @@
 class QtMaterialScrollBar;
 
 class ScrollBarSettingsEditor : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit ScrollBarSettingsEditor(QWidget *parent = 0);
-  ~ScrollBarSettingsEditor();
+  public:
+    explicit ScrollBarSettingsEditor(QWidget *parent = 0);
+    ~ScrollBarSettingsEditor();
 
-protected slots:
-  void setupForm();
-  void updateWidget();
+  protected slots:
+    void setupForm();
+    void updateWidget();
 
-private:
-  Ui::ScrollBarSettingsForm *const ui;
-  QtMaterialScrollBar *const m_verticalScrollbar;
-  QtMaterialScrollBar *const m_horizontalScrollbar;
+  private:
+    Ui::ScrollBarSettingsForm *const ui;
+    QtMaterialScrollBar *const m_verticalScrollbar;
+    QtMaterialScrollBar *const m_horizontalScrollbar;
 };

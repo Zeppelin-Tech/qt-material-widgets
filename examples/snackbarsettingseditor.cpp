@@ -5,28 +5,28 @@
 
 SnackbarSettingsEditor::SnackbarSettingsEditor(QWidget *parent)
     : QWidget(parent), ui(new Ui::SnackbarSettingsForm), m_snackbar(new QtMaterialSnackbar) {
-  QVBoxLayout *layout = new QVBoxLayout;
-  setLayout(layout);
+    QVBoxLayout *layout = new QVBoxLayout;
+    setLayout(layout);
 
-  QWidget *widget = new QWidget;
-  layout->addWidget(widget);
+    QWidget *widget = new QWidget;
+    layout->addWidget(widget);
 
-  QWidget *canvas = new QWidget;
-  canvas->setStyleSheet("QWidget { background: white; }");
-  layout->addWidget(canvas);
+    QWidget *canvas = new QWidget;
+    canvas->setStyleSheet("QWidget { background: white; }");
+    layout->addWidget(canvas);
 
-  ui->setupUi(widget);
-  layout->setContentsMargins(20, 20, 20, 20);
+    ui->setupUi(widget);
+    layout->setContentsMargins(20, 20, 20, 20);
 
-  layout = new QVBoxLayout;
-  canvas->setLayout(layout);
-  canvas->setMaximumHeight(300);
+    layout = new QVBoxLayout;
+    canvas->setLayout(layout);
+    canvas->setMaximumHeight(300);
 
-  m_snackbar->setParent(this);
+    m_snackbar->setParent(this);
 
-  setupForm();
+    setupForm();
 
-  connect(ui->showSnackbarButton, SIGNAL(pressed()), this, SLOT(showSnackbar()));
+    connect(ui->showSnackbarButton, SIGNAL(pressed()), this, SLOT(showSnackbar()));
 }
 
 SnackbarSettingsEditor::~SnackbarSettingsEditor() { delete ui; }

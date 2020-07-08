@@ -6,18 +6,18 @@
 class QtMaterialToggle;
 
 class ToggleSettingsEditor : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit ToggleSettingsEditor(QWidget *parent = 0);
-  ~ToggleSettingsEditor();
+  public:
+    explicit ToggleSettingsEditor(QWidget *parent = 0);
+    ~ToggleSettingsEditor();
 
-protected slots:
-  void setupForm();
-  void updateWidget();
-  void selectColor();
+  protected slots:
+    void setupForm();
+    void updateWidget();
+    void selectColor();
 
-private:
-  Ui::ToggleSettingsForm *const ui;
-  QtMaterialToggle *const m_toggle;
+  private:
+    Ui::ToggleSettingsForm *const ui;
+    QtMaterialToggle *const m_toggle;
 };

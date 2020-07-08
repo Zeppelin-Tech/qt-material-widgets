@@ -8,17 +8,17 @@ class QGraphicsDropShadowEffect;
 class QtMaterialRaisedButton;
 
 class QtMaterialRaisedButtonPrivate : public QtMaterialFlatButtonPrivate {
-  Q_DISABLE_COPY(QtMaterialRaisedButtonPrivate)
-  Q_DECLARE_PUBLIC(QtMaterialRaisedButton)
+    Q_DISABLE_COPY(QtMaterialRaisedButtonPrivate)
+    Q_DECLARE_PUBLIC(QtMaterialRaisedButton)
 
-public:
-  QtMaterialRaisedButtonPrivate(QtMaterialRaisedButton *q);
-  ~QtMaterialRaisedButtonPrivate();
+  public:
+    QtMaterialRaisedButtonPrivate(QtMaterialRaisedButton *q);
+    ~QtMaterialRaisedButtonPrivate();
 
-  void init();
+    void init();
 
-  QStateMachine *shadowStateMachine;
-  QState *normalState;
-  QState *pressedState;
-  QGraphicsDropShadowEffect *effect;
+    QStateMachine *shadowStateMachine;
+    QState *normalState;
+    QState *pressedState;
+    QGraphicsDropShadowEffect *effect;
 };

@@ -4,27 +4,27 @@
 #include <QObject>
 
 class QtMaterialProgressDelegate : public QObject {
-  Q_OBJECT
+    Q_OBJECT
 
-  Q_PROPERTY(qreal offset WRITE setOffset READ offset)
+    Q_PROPERTY(qreal offset WRITE setOffset READ offset)
 
-public:
-  QtMaterialProgressDelegate(QtMaterialProgress *parent);
-  ~QtMaterialProgressDelegate();
+  public:
+    QtMaterialProgressDelegate(QtMaterialProgress *parent);
+    ~QtMaterialProgressDelegate();
 
-  inline void setOffset(qreal offset);
-  inline qreal offset() const;
+    inline void setOffset(qreal offset);
+    inline qreal offset() const;
 
-private:
-  Q_DISABLE_COPY(QtMaterialProgressDelegate)
+  private:
+    Q_DISABLE_COPY(QtMaterialProgressDelegate)
 
-  QtMaterialProgress *const m_progress;
-  qreal m_offset;
+    QtMaterialProgress *const m_progress;
+    qreal m_offset;
 };
 
 inline void QtMaterialProgressDelegate::setOffset(qreal offset) {
-  m_offset = offset;
-  m_progress->update();
+    m_offset = offset;
+    m_progress->update();
 }
 
 inline qreal QtMaterialProgressDelegate::offset() const { return m_offset; }

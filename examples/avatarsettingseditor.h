@@ -6,18 +6,18 @@
 class QtMaterialAvatar;
 
 class AvatarSettingsEditor : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit AvatarSettingsEditor(QWidget *parent = 0);
-  ~AvatarSettingsEditor();
+  public:
+    explicit AvatarSettingsEditor(QWidget *parent = 0);
+    ~AvatarSettingsEditor();
 
-protected slots:
-  void setupForm();
-  void updateWidget();
-  void selectColor();
+  protected slots:
+    void setupForm();
+    void updateWidget();
+    void selectColor();
 
-private:
-  Ui::AvatarSettingsForm *const ui;
-  QtMaterialAvatar *const m_avatar;
+  private:
+    Ui::AvatarSettingsForm *const ui;
+    QtMaterialAvatar *const m_avatar;
 };

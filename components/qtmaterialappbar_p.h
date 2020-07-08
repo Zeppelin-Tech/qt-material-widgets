@@ -6,17 +6,17 @@
 class QtMaterialAppBar;
 
 class QtMaterialAppBarPrivate {
-  Q_DISABLE_COPY(QtMaterialAppBarPrivate)
-  Q_DECLARE_PUBLIC(QtMaterialAppBar)
+    Q_DISABLE_COPY(QtMaterialAppBarPrivate)
+    Q_DECLARE_PUBLIC(QtMaterialAppBar)
 
-public:
-  QtMaterialAppBarPrivate(QtMaterialAppBar *q);
-  ~QtMaterialAppBarPrivate();
+  public:
+    QtMaterialAppBarPrivate(QtMaterialAppBar *q);
+    ~QtMaterialAppBarPrivate();
 
-  void init();
+    void init();
 
-  QtMaterialAppBar *const q_ptr;
-  bool useThemeColors;
-  QColor foregroundColor;
-  QColor backgroundColor;
+    QtMaterialAppBar *const q_ptr;
+    bool useThemeColors;
+    QColor foregroundColor;
+    QColor backgroundColor;
 };

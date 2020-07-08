@@ -5,12 +5,12 @@
 class QtMaterialCheckBox;
 
 class QtMaterialCheckBoxPrivate : public QtMaterialCheckablePrivate {
-  Q_DISABLE_COPY(QtMaterialCheckBoxPrivate)
-  Q_DECLARE_PUBLIC(QtMaterialCheckBox)
+    Q_DISABLE_COPY(QtMaterialCheckBoxPrivate)
+    Q_DECLARE_PUBLIC(QtMaterialCheckBox)
 
-public:
-  QtMaterialCheckBoxPrivate(QtMaterialCheckBox *q);
-  ~QtMaterialCheckBoxPrivate();
+  public:
+    QtMaterialCheckBoxPrivate(QtMaterialCheckBox *q);
+    ~QtMaterialCheckBoxPrivate();
 
-  void init();
+    void init();
 };

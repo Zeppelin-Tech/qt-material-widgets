@@ -6,24 +6,24 @@
 class QtMaterialIconButton;
 
 class IconButtonSettingsEditor : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit IconButtonSettingsEditor(QWidget *parent = 0);
-  ~IconButtonSettingsEditor();
+  public:
+    explicit IconButtonSettingsEditor(QWidget *parent = 0);
+    ~IconButtonSettingsEditor();
 
-protected:
-  explicit IconButtonSettingsEditor(QtMaterialIconButton *button, QWidget *parent = 0);
+  protected:
+    explicit IconButtonSettingsEditor(QtMaterialIconButton *button, QWidget *parent = 0);
 
-  Ui::IconButtonSettingsForm *const ui;
+    Ui::IconButtonSettingsForm *const ui;
 
-protected slots:
-  void setupForm();
-  void updateWidget();
-  void selectColor();
+  protected slots:
+    void setupForm();
+    void updateWidget();
+    void selectColor();
 
-private:
-  void init();
+  private:
+    void init();
 
-  QtMaterialIconButton *const m_button;
+    QtMaterialIconButton *const m_button;
 };

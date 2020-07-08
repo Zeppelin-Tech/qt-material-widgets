@@ -3,9 +3,9 @@
 #include "flatbuttonsettingseditor.h"
 
 class RaisedButtonSettingsEditor : public FlatButtonSettingsEditor {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit RaisedButtonSettingsEditor(QWidget *parent = 0);
-  ~RaisedButtonSettingsEditor();
+  public:
+    explicit RaisedButtonSettingsEditor(QWidget *parent = 0);
+    ~RaisedButtonSettingsEditor();
 };

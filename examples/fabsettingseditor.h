@@ -6,18 +6,18 @@
 class QtMaterialFloatingActionButton;
 
 class FloatingActionButtonSettingsEditor : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit FloatingActionButtonSettingsEditor(QWidget *parent = 0);
-  ~FloatingActionButtonSettingsEditor();
+  public:
+    explicit FloatingActionButtonSettingsEditor(QWidget *parent = 0);
+    ~FloatingActionButtonSettingsEditor();
 
-protected slots:
-  void setupForm();
-  void updateWidget();
-  void selectColor();
+  protected slots:
+    void setupForm();
+    void updateWidget();
+    void selectColor();
 
-private:
-  Ui::FloatingActionButtonSettingsForm *const ui;
-  QtMaterialFloatingActionButton *const m_fab;
+  private:
+    Ui::FloatingActionButtonSettingsForm *const ui;
+    QtMaterialFloatingActionButton *const m_fab;
 };

@@ -6,17 +6,17 @@
 class QtMaterialDrawer;
 
 class DrawerSettingsEditor : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit DrawerSettingsEditor(QWidget *parent = 0);
-  ~DrawerSettingsEditor();
+  public:
+    explicit DrawerSettingsEditor(QWidget *parent = 0);
+    ~DrawerSettingsEditor();
 
-protected slots:
-  void setupForm();
-  void updateWidget();
+  protected slots:
+    void setupForm();
+    void updateWidget();
 
-private:
-  Ui::DrawerSettingsForm *const ui;
-  QtMaterialDrawer *const m_drawer;
+  private:
+    Ui::DrawerSettingsForm *const ui;
+    QtMaterialDrawer *const m_drawer;
 };

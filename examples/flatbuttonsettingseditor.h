@@ -6,26 +6,26 @@
 class QtMaterialFlatButton;
 
 class FlatButtonSettingsEditor : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit FlatButtonSettingsEditor(QWidget *parent = 0);
-  ~FlatButtonSettingsEditor();
+  public:
+    explicit FlatButtonSettingsEditor(QWidget *parent = 0);
+    ~FlatButtonSettingsEditor();
 
-protected:
-  explicit FlatButtonSettingsEditor(QtMaterialFlatButton *button, QWidget *parent = 0);
+  protected:
+    explicit FlatButtonSettingsEditor(QtMaterialFlatButton *button, QWidget *parent = 0);
 
-  Ui::FlatButtonSettingsForm *const ui;
+    Ui::FlatButtonSettingsForm *const ui;
 
-protected slots:
-  void setupForm();
-  void updateWidget();
-  void selectColor();
-  void applyDefaultPreset();
-  void applyCheckablePreset();
+  protected slots:
+    void setupForm();
+    void updateWidget();
+    void selectColor();
+    void applyDefaultPreset();
+    void applyCheckablePreset();
 
-private:
-  void init();
+  private:
+    void init();
 
-  QtMaterialFlatButton *const m_button;
+    QtMaterialFlatButton *const m_button;
 };

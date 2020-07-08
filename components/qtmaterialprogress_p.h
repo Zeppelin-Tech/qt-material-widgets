@@ -8,19 +8,19 @@ class QtMaterialProgress;
 class QtMaterialProgressDelegate;
 
 class QtMaterialProgressPrivate {
-  Q_DISABLE_COPY(QtMaterialProgressPrivate)
-  Q_DECLARE_PUBLIC(QtMaterialProgress)
+    Q_DISABLE_COPY(QtMaterialProgressPrivate)
+    Q_DECLARE_PUBLIC(QtMaterialProgress)
 
-public:
-  QtMaterialProgressPrivate(QtMaterialProgress *q);
-  ~QtMaterialProgressPrivate();
+  public:
+    QtMaterialProgressPrivate(QtMaterialProgress *q);
+    ~QtMaterialProgressPrivate();
 
-  void init();
+    void init();
 
-  QtMaterialProgress *const q_ptr;
-  QtMaterialProgressDelegate *delegate;
-  Material::ProgressType progressType;
-  QColor progressColor;
-  QColor backgroundColor;
-  bool useThemeColors;
+    QtMaterialProgress *const q_ptr;
+    QtMaterialProgressDelegate *delegate;
+    Material::ProgressType progressType;
+    QColor progressColor;
+    QColor backgroundColor;
+    bool useThemeColors;
 };

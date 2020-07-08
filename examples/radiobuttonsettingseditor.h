@@ -7,20 +7,20 @@ class QtMaterialRadioButton;
 class RadioButton;
 
 class RadioButtonSettingsEditor : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit RadioButtonSettingsEditor(QWidget *parent = 0);
-  ~RadioButtonSettingsEditor();
+  public:
+    explicit RadioButtonSettingsEditor(QWidget *parent = 0);
+    ~RadioButtonSettingsEditor();
 
-protected slots:
-  void setupForm();
-  void updateWidget();
-  void selectColor();
+  protected slots:
+    void setupForm();
+    void updateWidget();
+    void selectColor();
 
-private:
-  Ui::RadioButtonSettingsForm *const ui;
-  QtMaterialRadioButton *const m_radioButton1;
-  QtMaterialRadioButton *const m_radioButton2;
-  QtMaterialRadioButton *const m_radioButton3;
+  private:
+    Ui::RadioButtonSettingsForm *const ui;
+    QtMaterialRadioButton *const m_radioButton1;
+    QtMaterialRadioButton *const m_radioButton2;
+    QtMaterialRadioButton *const m_radioButton3;
 };

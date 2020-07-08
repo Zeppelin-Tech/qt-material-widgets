@@ -4,34 +4,34 @@
 #include <QtWidgets/QCommonStyle>
 
 #define MATERIAL_DISABLE_THEME_COLORS                                                              \
-  if (d->useThemeColors == true) {                                                                 \
-    d->useThemeColors = false;                                                                     \
-  }
+    if (d->useThemeColors == true) {                                                               \
+        d->useThemeColors = false;                                                                 \
+    }
 
 class QtMaterialTheme;
 
 class QtMaterialStyle : public QCommonStyle {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  inline static QtMaterialStyle &instance();
+  public:
+    inline static QtMaterialStyle &instance();
 
-  void setTheme(QtMaterialTheme *theme);
-  QColor themeColor(const QString &key) const;
+    void setTheme(QtMaterialTheme *theme);
+    QColor themeColor(const QString &key) const;
 
-protected:
-  const QScopedPointer<QtMaterialStylePrivate> d_ptr;
+  protected:
+    const QScopedPointer<QtMaterialStylePrivate> d_ptr;
 
-private:
-  Q_DECLARE_PRIVATE(QtMaterialStyle)
+  private:
+    Q_DECLARE_PRIVATE(QtMaterialStyle)
 
-  QtMaterialStyle();
+    QtMaterialStyle();
 
-  QtMaterialStyle(QtMaterialStyle const &);
-  void operator=(QtMaterialStyle const &);
+    QtMaterialStyle(QtMaterialStyle const &);
+    void operator=(QtMaterialStyle const &);
 };
 
 inline QtMaterialStyle &QtMaterialStyle::instance() {
-  static QtMaterialStyle instance;
-  return instance;
+    static QtMaterialStyle instance;
+    return instance;
 }

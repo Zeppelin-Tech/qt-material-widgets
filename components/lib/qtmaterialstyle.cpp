@@ -12,13 +12,13 @@ QtMaterialStylePrivate::QtMaterialStylePrivate(QtMaterialStyle *q) : q_ptr(q) {}
 QtMaterialStylePrivate::~QtMaterialStylePrivate() {}
 
 void QtMaterialStylePrivate::init() {
-  Q_Q(QtMaterialStyle);
+    Q_Q(QtMaterialStyle);
 
-  QFontDatabase::addApplicationFont(":/fonts/roboto_regular");
-  QFontDatabase::addApplicationFont(":/fonts/roboto_medium");
-  QFontDatabase::addApplicationFont(":/fonts/roboto_bold");
+    QFontDatabase::addApplicationFont(":/fonts/roboto_regular");
+    QFontDatabase::addApplicationFont(":/fonts/roboto_medium");
+    QFontDatabase::addApplicationFont(":/fonts/roboto_bold");
 
-  q->setTheme(new QtMaterialTheme);
+    q->setTheme(new QtMaterialTheme);
 }
 
 /*!
@@ -27,20 +27,20 @@ void QtMaterialStylePrivate::init() {
  */
 
 void QtMaterialStyle::setTheme(QtMaterialTheme *theme) {
-  Q_D(QtMaterialStyle);
+    Q_D(QtMaterialStyle);
 
-  d->theme = theme;
-  theme->setParent(this);
+    d->theme = theme;
+    theme->setParent(this);
 }
 
 QColor QtMaterialStyle::themeColor(const QString &key) const {
-  Q_D(const QtMaterialStyle);
+    Q_D(const QtMaterialStyle);
 
-  Q_ASSERT(d->theme);
+    Q_ASSERT(d->theme);
 
-  return d->theme->getColor(key);
+    return d->theme->getColor(key);
 }
 
 QtMaterialStyle::QtMaterialStyle() : QCommonStyle(), d_ptr(new QtMaterialStylePrivate(this)) {
-  d_func()->init();
+    d_func()->init();
 }
