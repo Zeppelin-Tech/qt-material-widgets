@@ -1,1 +1,14 @@
+# CLion Files
+.idea/
+*.ipr
+*.iml
+*.iws
+*.ids
+
+# Build Files
+build/
+cmake-build-debug/
+cmake-build-release/
+
+# QT Files
 *.pro.user
