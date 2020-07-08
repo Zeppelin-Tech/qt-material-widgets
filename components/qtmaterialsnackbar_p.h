@@ -1,33 +1,29 @@
-#ifndef QTMATERIALSNACKBAR_P_H
-#define QTMATERIALSNACKBAR_P_H
+#pragma once
 
-#include <QObject>
 #include <QColor>
+#include <QObject>
 
 class QtMaterialSnackbar;
 class QtMaterialSnackbarStateMachine;
 
-class QtMaterialSnackbarPrivate
-{
-    Q_DISABLE_COPY(QtMaterialSnackbarPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialSnackbar)
+class QtMaterialSnackbarPrivate {
+  Q_DISABLE_COPY(QtMaterialSnackbarPrivate)
+  Q_DECLARE_PUBLIC(QtMaterialSnackbar)
 
 public:
-    QtMaterialSnackbarPrivate(QtMaterialSnackbar *q);
-    ~QtMaterialSnackbarPrivate();
+  QtMaterialSnackbarPrivate(QtMaterialSnackbar *q);
+  ~QtMaterialSnackbarPrivate();
 
-    void init();
+  void init();
 
-    QtMaterialSnackbar             *const q_ptr;
-    QtMaterialSnackbarStateMachine *stateMachine;
-    QColor                          backgroundColor;
-    QColor                          textColor;
-    qreal                           bgOpacity;
-    QList<QString>                  messages;
-    int                             duration;
-    int                             boxWidth;
-    bool                            clickDismiss;
-    bool                            useThemeColors;
+  QtMaterialSnackbar *const q_ptr;
+  QtMaterialSnackbarStateMachine *stateMachine;
+  QColor backgroundColor;
+  QColor textColor;
+  qreal bgOpacity;
+  QList<QString> messages;
+  int duration;
+  int boxWidth;
+  bool clickDismiss;
+  bool useThemeColors;
 };
-
-#endif // QTMATERIALSNACKBAR_P_H

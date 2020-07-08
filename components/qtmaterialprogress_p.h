@@ -1,30 +1,26 @@
-#ifndef QTMATERIALPROGRESS_P_H
-#define QTMATERIALPROGRESS_P_H
+#pragma once
 
-#include <QtGlobal>
-#include <QColor>
 #include "lib/qtmaterialtheme.h"
+#include <QColor>
+#include <QtGlobal>
 
 class QtMaterialProgress;
 class QtMaterialProgressDelegate;
 
-class QtMaterialProgressPrivate
-{
-    Q_DISABLE_COPY(QtMaterialProgressPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialProgress)
+class QtMaterialProgressPrivate {
+  Q_DISABLE_COPY(QtMaterialProgressPrivate)
+  Q_DECLARE_PUBLIC(QtMaterialProgress)
 
 public:
-    QtMaterialProgressPrivate(QtMaterialProgress *q);
-    ~QtMaterialProgressPrivate();
+  QtMaterialProgressPrivate(QtMaterialProgress *q);
+  ~QtMaterialProgressPrivate();
 
-    void init();
+  void init();
 
-    QtMaterialProgress         *const q_ptr;
-    QtMaterialProgressDelegate *delegate;
-    Material::ProgressType      progressType;
-    QColor                      progressColor;
-    QColor                      backgroundColor;
-    bool                        useThemeColors;
+  QtMaterialProgress *const q_ptr;
+  QtMaterialProgressDelegate *delegate;
+  Material::ProgressType progressType;
+  QColor progressColor;
+  QColor backgroundColor;
+  bool useThemeColors;
 };
-
-#endif // QTMATERIALPROGRESS_P_H

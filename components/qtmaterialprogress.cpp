@@ -1,45 +1,39 @@
 #include "qtmaterialprogress.h"
+#include "lib/qtmaterialstyle.h"
+#include "qtmaterialprogress_internal.h"
 #include "qtmaterialprogress_p.h"
-#include <QPropertyAnimation>
 #include <QPainter>
 #include <QPainterPath>
-#include "qtmaterialprogress_internal.h"
-#include "lib/qtmaterialstyle.h"
+#include <QPropertyAnimation>
 
 /*!
  *  \class QtMaterialProgressPrivate
  *  \internal
  */
 
-QtMaterialProgressPrivate::QtMaterialProgressPrivate(QtMaterialProgress *q)
-    : q_ptr(q)
-{
-}
+QtMaterialProgressPrivate::QtMaterialProgressPrivate(QtMaterialProgress *q) : q_ptr(q) {}
 
-QtMaterialProgressPrivate::~QtMaterialProgressPrivate()
-{
-}
+QtMaterialProgressPrivate::~QtMaterialProgressPrivate() {}
 
-void QtMaterialProgressPrivate::init()
-{
-    Q_Q(QtMaterialProgress);
+void QtMaterialProgressPrivate::init() {
+  Q_Q(QtMaterialProgress);
 
-    delegate       = new QtMaterialProgressDelegate(q);
-    progressType   = Material::IndeterminateProgress;
-    useThemeColors = true;
+  delegate = new QtMaterialProgressDelegate(q);
+  progressType = Material::IndeterminateProgress;
+  useThemeColors = true;
 
-    QPropertyAnimation *animation;
+  QPropertyAnimation *animation;
 
-    animation = new QPropertyAnimation(q);
-    animation->setPropertyName("offset");
-    animation->setTargetObject(delegate);
-    animation->setStartValue(0);
-    animation->setEndValue(1);
-    animation->setDuration(1000);
+  animation = new QPropertyAnimation(q);
+  animation->setPropertyName("offset");
+  animation->setTargetObject(delegate);
+  animation->setStartValue(0);
+  animation->setEndValue(1);
+  animation->setDuration(1000);
 
-    animation->setLoopCount(-1);
+  animation->setLoopCount(-1);
 
-    animation->start();
+  animation->start();
 }
 
 /*!
@@ -47,127 +41,113 @@ void QtMaterialProgressPrivate::init()
  */
 
 QtMaterialProgress::QtMaterialProgress(QWidget *parent)
-    : QProgressBar(parent),
-      d_ptr(new QtMaterialProgressPrivate(this))
-{
-    d_func()->init();
+    : QProgressBar(parent), d_ptr(new QtMaterialProgressPrivate(this)) {
+  d_func()->init();
 }
 
-QtMaterialProgress::~QtMaterialProgress()
-{
+QtMaterialProgress::~QtMaterialProgress() {}
+
+void QtMaterialProgress::setProgressType(Material::ProgressType type) {
+  Q_D(QtMaterialProgress);
+
+  d->progressType = type;
+  update();
 }
 
-void QtMaterialProgress::setProgressType(Material::ProgressType type)
-{
-    Q_D(QtMaterialProgress);
+Material::ProgressType QtMaterialProgress::progressType() const {
+  Q_D(const QtMaterialProgress);
 
-    d->progressType = type;
-    update();
+  return d->progressType;
 }
 
-Material::ProgressType QtMaterialProgress::progressType() const
-{
-    Q_D(const QtMaterialProgress);
+void QtMaterialProgress::setUseThemeColors(bool state) {
+  Q_D(QtMaterialProgress);
 
-    return d->progressType;
+  if (d->useThemeColors == state) {
+    return;
+  }
+
+  d->useThemeColors = state;
+  update();
 }
 
-void QtMaterialProgress::setUseThemeColors(bool state)
-{
-    Q_D(QtMaterialProgress);
+bool QtMaterialProgress::useThemeColors() const {
+  Q_D(const QtMaterialProgress);
 
-    if (d->useThemeColors == state) {
-        return;
-    }
-
-    d->useThemeColors = state;
-    update();
+  return d->useThemeColors;
 }
 
-bool QtMaterialProgress::useThemeColors() const
-{
-    Q_D(const QtMaterialProgress);
+void QtMaterialProgress::setProgressColor(const QColor &color) {
+  Q_D(QtMaterialProgress);
 
-    return d->useThemeColors;
+  d->progressColor = color;
+
+  MATERIAL_DISABLE_THEME_COLORS
+  update();
 }
 
-void QtMaterialProgress::setProgressColor(const QColor &color)
-{
-    Q_D(QtMaterialProgress);
+QColor QtMaterialProgress::progressColor() const {
+  Q_D(const QtMaterialProgress);
 
-    d->progressColor = color;
-
-    MATERIAL_DISABLE_THEME_COLORS
-    update();
+  if (d->useThemeColors || !d->progressColor.isValid()) {
+    return QtMaterialStyle::instance().themeColor("primary1");
+  } else {
+    return d->progressColor;
+  }
 }
 
-QColor QtMaterialProgress::progressColor() const
-{
-    Q_D(const QtMaterialProgress);
+void QtMaterialProgress::setBackgroundColor(const QColor &color) {
+  Q_D(QtMaterialProgress);
 
-    if (d->useThemeColors || !d->progressColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("primary1");
-    } else {
-        return d->progressColor;
-    }
+  d->backgroundColor = color;
+
+  MATERIAL_DISABLE_THEME_COLORS
+  update();
 }
 
-void QtMaterialProgress::setBackgroundColor(const QColor &color)
-{
-    Q_D(QtMaterialProgress);
+QColor QtMaterialProgress::backgroundColor() const {
+  Q_D(const QtMaterialProgress);
 
-    d->backgroundColor = color;
-
-    MATERIAL_DISABLE_THEME_COLORS
-    update();
-}
-
-QColor QtMaterialProgress::backgroundColor() const
-{
-    Q_D(const QtMaterialProgress);
-
-    if (d->useThemeColors || !d->backgroundColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("border");
-    } else {
-        return d->backgroundColor;
-    }
+  if (d->useThemeColors || !d->backgroundColor.isValid()) {
+    return QtMaterialStyle::instance().themeColor("border");
+  } else {
+    return d->backgroundColor;
+  }
 }
 
 /*!
  *  \reimp
  */
-void QtMaterialProgress::paintEvent(QPaintEvent *event)
-{
-    Q_UNUSED(event)
+void QtMaterialProgress::paintEvent(QPaintEvent *event) {
+  Q_UNUSED(event)
 
-    Q_D(QtMaterialProgress);
+  Q_D(QtMaterialProgress);
 
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
+  QPainter painter(this);
+  painter.setRenderHint(QPainter::Antialiasing);
 
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(isEnabled() ? backgroundColor()
-                               : QtMaterialStyle::instance().themeColor("disabled"));
+  QBrush brush;
+  brush.setStyle(Qt::SolidPattern);
+  brush.setColor(isEnabled() ? backgroundColor()
+                             : QtMaterialStyle::instance().themeColor("disabled"));
+  painter.setBrush(brush);
+  painter.setPen(Qt::NoPen);
+
+  QPainterPath path;
+  path.addRoundedRect(0, height() / 2 - 3, width(), 6, 3, 3);
+  painter.setClipPath(path);
+
+  painter.drawRect(0, 0, width(), height());
+
+  if (isEnabled()) {
+    brush.setColor(progressColor());
     painter.setBrush(brush);
-    painter.setPen(Qt::NoPen);
 
-    QPainterPath path;
-    path.addRoundedRect(0, height()/2-3, width(), 6, 3, 3);
-    painter.setClipPath(path);
-
-    painter.drawRect(0, 0, width(), height());
-
-    if (isEnabled())
-    {
-        brush.setColor(progressColor());
-        painter.setBrush(brush);
-
-        if (Material::IndeterminateProgress == d->progressType) {
-            painter.drawRect(d->delegate->offset()*width()*2-width(), 0, width(), height());
-        } else {
-            qreal p = static_cast<qreal>(width())*(value()-minimum())/(maximum()-minimum());
-            painter.drawRect(0, 0, p, height());
-        }
+    if (Material::IndeterminateProgress == d->progressType) {
+      painter.drawRect(d->delegate->offset() * width() * 2 - width(), 0, width(), height());
+    } else {
+      qreal p = static_cast<qreal>(width()) * (value() - minimum()) / (maximum() - minimum());
+      painter.drawRect(0, 0, p, height());
     }
+  }
 }

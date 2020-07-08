@@ -1,27 +1,23 @@
-#ifndef FABSETTINGSEDITOR_H
-#define FABSETTINGSEDITOR_H
+#pragma once
 
-#include <QWidget>
 #include "ui_fabsettingsform.h"
+#include <QWidget>
 
 class QtMaterialFloatingActionButton;
 
-class FloatingActionButtonSettingsEditor : public QWidget
-{
-    Q_OBJECT
+class FloatingActionButtonSettingsEditor : public QWidget {
+  Q_OBJECT
 
 public:
-    explicit FloatingActionButtonSettingsEditor(QWidget *parent = 0);
-    ~FloatingActionButtonSettingsEditor();
+  explicit FloatingActionButtonSettingsEditor(QWidget *parent = 0);
+  ~FloatingActionButtonSettingsEditor();
 
 protected slots:
-    void setupForm();
-    void updateWidget();
-    void selectColor();
+  void setupForm();
+  void updateWidget();
+  void selectColor();
 
 private:
-    Ui::FloatingActionButtonSettingsForm *const ui;
-    QtMaterialFloatingActionButton       *const m_fab;
+  Ui::FloatingActionButtonSettingsForm *const ui;
+  QtMaterialFloatingActionButton *const m_fab;
 };
-
-#endif // FABSETTINGSEDITOR_H

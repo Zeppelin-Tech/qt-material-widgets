@@ -1,26 +1,22 @@
-#ifndef QTMATERIALAPPBAR_P_H
-#define QTMATERIALAPPBAR_P_H
+#pragma once
 
-#include <QtGlobal>
 #include <QColor>
+#include <QtGlobal>
 
 class QtMaterialAppBar;
 
-class QtMaterialAppBarPrivate
-{
-    Q_DISABLE_COPY(QtMaterialAppBarPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialAppBar)
+class QtMaterialAppBarPrivate {
+  Q_DISABLE_COPY(QtMaterialAppBarPrivate)
+  Q_DECLARE_PUBLIC(QtMaterialAppBar)
 
 public:
-    QtMaterialAppBarPrivate(QtMaterialAppBar *q);
-    ~QtMaterialAppBarPrivate();
+  QtMaterialAppBarPrivate(QtMaterialAppBar *q);
+  ~QtMaterialAppBarPrivate();
 
-    void init();
+  void init();
 
-    QtMaterialAppBar *const q_ptr;
-    bool                    useThemeColors;
-    QColor                  foregroundColor;
-    QColor                  backgroundColor;
+  QtMaterialAppBar *const q_ptr;
+  bool useThemeColors;
+  QColor foregroundColor;
+  QColor backgroundColor;
 };
-
-#endif // QTMATERIALAPPBAR_P_H

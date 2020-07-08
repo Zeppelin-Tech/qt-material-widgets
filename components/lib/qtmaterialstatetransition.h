@@ -1,22 +1,18 @@
-#ifndef QTMATERIALSTATETRANSITION_H
-#define QTMATERIALSTATETRANSITION_H
+#pragma once
 
-#include <QAbstractTransition>
 #include "lib/qtmaterialstatetransitionevent.h"
+#include <QAbstractTransition>
 
-class QtMaterialStateTransition : public QAbstractTransition
-{
-    Q_OBJECT
+class QtMaterialStateTransition : public QAbstractTransition {
+  Q_OBJECT
 
 public:
-    QtMaterialStateTransition(QtMaterialStateTransitionType type);
+  QtMaterialStateTransition(QtMaterialStateTransitionType type);
 
 protected:
-    virtual bool eventTest(QEvent *event);
-    virtual void onTransition(QEvent *);
+  virtual bool eventTest(QEvent *event);
+  virtual void onTransition(QEvent *);
 
 private:
-    QtMaterialStateTransitionType m_type;
+  QtMaterialStateTransitionType m_type;
 };
-
-#endif // QTMATERIALSTATETRANSITION_H
